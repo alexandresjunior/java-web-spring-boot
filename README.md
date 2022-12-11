@@ -53,6 +53,7 @@ Este curso é um guia de aprendizado completo para você iniciar uma carreira na
 
 ## Link Úteis
 
+* [Java Handbook](https://www.freecodecamp.org/news/the-java-handbook/)
 * [Aula HTML5 e CSS3 - CS50 Harvard](https://cs50.harvard.edu/web/2020/weeks/0/)
 * [Aula JavaScript - CS50 Harvard](https://cs50.harvard.edu/web/2020/weeks/5/)
 * [Bootstrap - Documentação Oficial](https://getbootstrap.com/)
