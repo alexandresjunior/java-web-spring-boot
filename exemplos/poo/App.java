@@ -1,3 +1,4 @@
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,6 +33,15 @@ public class App {
         aluno.setDataNascimento(dataCalenda.getTime());
         
         System.out.println(dataCalenda.getTime());
+
+        // Voltar para o formato dd/MM/yyyy
+
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
+        String dataFormatada = df.format(data);
+
+        System.out.println("Data sem formatação: " + data);
+        System.out.println("Data Formatada: " + dataFormatada);
     }
 
 }
