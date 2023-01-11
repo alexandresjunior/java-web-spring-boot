@@ -11,6 +11,8 @@ public class App {
 
         aluno.setNome("Alex");
 
+        // Manipulação de Data #1 - Usando a classe Date e SimpleDateFormat
+
         Date data = new Date();
         
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
@@ -22,6 +24,8 @@ public class App {
         } catch (ParseException e) {
             System.out.println("Não foi possível fazer a transformação String em Date");
         }
+
+        // Manipulação de Datas #2: Usando a classe Calendar
 
         Calendar dataCalenda = new GregorianCalendar(1995, 6, 28);
 
