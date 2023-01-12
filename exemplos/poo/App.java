@@ -42,6 +42,10 @@ public class App {
 
         System.out.println("Data sem formatação: " + data);
         System.out.println("Data Formatada: " + dataFormatada);
+
+        aluno.fazerLogin();
+
+        aluno.mostrarDetalhesDoAluno();
     }
 
 }

@@ -1,3 +1,5 @@
+import java.text.SimpleDateFormat;
+import java.text.DateFormat;
 import java.util.Date;
 
 public class Aluno {
@@ -46,6 +48,25 @@ public class Aluno {
 
     public void setMatricula(int matricula) {
         this.matricula = matricula;
+    }
+
+    // Métodos Customizados
+
+    public void fazerLogin() {
+        System.out.println("O aluno " + this.nome + " fez login!");
+    }
+
+    public void mostrarDetalhesDoAluno() {
+        System.out.println("Nome: " + this.nome);
+        System.out.println("Sobrenome: " + this.sobrenome);
+        System.out.println("Data de Nascimento: " + formatarData(this.dataNascimento));
+        System.out.println("Matrícula: " + this.matricula);
+    }
+
+    private String formatarData(Date data) {
+        DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+
+        return df.format(data);
     }
 
 }
