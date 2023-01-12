@@ -9,6 +9,20 @@ public class Aluno {
     private String cpf;
     private Date dataNascimento;
     private int matricula;
+    private static int numeroDeAlunos;
+
+    public Aluno() {
+        numeroDeAlunos++;
+    }
+
+    public Aluno(String nome) {
+        this.nome = nome;
+    }
+
+    public Aluno(String nome, String cpf) {
+        this.nome = nome;
+        this.cpf = cpf;
+    }
 
     public String getNome() {
         return nome;
@@ -56,6 +70,10 @@ public class Aluno {
         System.out.println("O aluno " + this.nome + " fez login!");
     }
 
+    public void fazerLogin(String nome) {
+        System.out.println("O aluno " + nome + " fez login!");
+    }
+
     public void mostrarDetalhesDoAluno() {
         System.out.println("Nome: " + this.nome);
         System.out.println("Sobrenome: " + this.sobrenome);
@@ -67,6 +85,14 @@ public class Aluno {
         DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
 
         return df.format(data);
+    }
+
+    public static int getNumeroDeAlunos() {
+        return numeroDeAlunos;
+    }
+
+    public static void setNumeroDeAlunos(int numeroDeAlunos) {
+        Aluno.numeroDeAlunos = numeroDeAlunos;
     }
 
 }
