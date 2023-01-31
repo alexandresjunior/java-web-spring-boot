@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*  MAIN   */
+
+main {
+    height: 70vh;
+}
+
+#selecione-servico {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+/* FORMULARIO */
+
+#form-signin {
+    width: 30%;
+    min-width: 320px;
+    padding: 15px;
+}
+
+.form-signin label {
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+    font-size: 1.1rem;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.form-signin input[type="text"] {
+    margin-bottom: -1px;
+    border-radius: 0;
+}
+
+.form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+/* BOTAO */
+
+.botao {
+    padding: 5px;
+    width: 100%;
+    background-color: #0057DF;
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 10px;
+    color: white;
+}
+
+#agendar-nome {
+    font-weight: 700 !important;
+}
+
+.botao:hover {
+    padding: 5px;
+    width: 100%;
+    background-color: #206de9;
+
+    border-radius: 10px;
+    color: rgb(167, 176, 255);
+}

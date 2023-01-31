@@ -1,0 +1,67 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+.card-title {
+    font-weight: 300;
+}
+
+/*  MAIN   */
+
+main {
+    margin: 80px 0px 70px 0px;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+/* FORMULARIO */
+
+.agendamentos-container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    background-color: #D9F8FF;
+    border: 1px solid #5A5A5A;
+    border-radius: 5px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.main-container {
+    width: 27%;
+    min-width: 280px;
+}
+
+#meus-servicos-nome {
+    text-align: left;
+    font-weight: 400;
+}
+
+.img-icon {
+    width: 14px;
+}
+
+/* BOTAO */
+
+.botao {
+    padding: 5px;
+    width: 300px;
+    background-color: #0057DF;
+    border: 2px solid rgb(90, 90, 90);
+    border-radius: 10px;
+    color: white;
+}
+
+#novo-servico-nome {
+    font-weight: 700;
+}
+
+.botao:hover {
+    background-color: #206de9;
+    border-radius: 10px;
+    color: rgb(167, 176, 255);
+}

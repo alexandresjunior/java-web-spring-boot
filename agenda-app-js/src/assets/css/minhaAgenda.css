@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Encode+Sans:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+/*  MAIN   */
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    justify-content: space-between;
+}
+
+main {
+    margin: 80px 0px 70px 0px;
+}
+
+
+/* FORMULARIO */
+
+.agendamentos-container {
+    display: flex;
+    gap: 20px;
+    padding: 10px;
+    background-color: #D9F8FF;
+    border: 1px solid #5A5A5A;
+    border-radius: 5px;
+    justify-content: space-between;
+
+}
+
+.main-container {
+    width: 27%;
+    min-width: 280px;
+}
+
+.img-icon {
+    width: 14px;
+}
