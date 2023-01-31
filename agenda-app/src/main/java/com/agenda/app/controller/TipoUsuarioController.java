@@ -33,6 +33,11 @@ public class TipoUsuarioController {
         return tipoUsuarioRepository.findById(id);
     }
 
+    @GetMapping(value = "/tipousuarios/nome/{nome}")
+    public TipoUsuario obterTipoUsuarioPeloNome(@PathVariable("nome") String nome) {
+        return tipoUsuarioRepository.findByNomeLike(nome + "%");
+    }
+
     @DeleteMapping(value = "/tipousuarios/{id}")
     public String deletarTipoUsuarioPeloId(@PathVariable("id") int id) {
         tipoUsuarioRepository.deleteById(id);

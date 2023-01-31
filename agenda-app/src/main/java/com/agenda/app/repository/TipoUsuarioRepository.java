@@ -6,4 +6,8 @@ import com.agenda.app.model.TipoUsuario;
 
 public interface TipoUsuarioRepository extends JpaRepository<TipoUsuario, Integer> {
 
+    TipoUsuario findByNomeLike(String nome);
+    TipoUsuario findByIdTipoUsuarioAndNome(int id, String nome);
+    TipoUsuario findByNome(String nome);
+
 }
