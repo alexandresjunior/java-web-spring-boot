@@ -19,7 +19,7 @@ public class TipoUsuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int idTipoUsuario;
 
-    @Column(name = "nome", nullable = false, length = 45)
+    @Column(name = "nome", unique = true, nullable = false, length = 45)
     private String nome;
 
 }

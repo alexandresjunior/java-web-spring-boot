@@ -4,6 +4,9 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -17,10 +20,19 @@ import com.agenda.app.repository.TipoUsuarioRepository;
 
 @RestController
 public class TipoUsuarioController {
-    
+
     @PostMapping(value = "/tipousuarios")
-    public TipoUsuario criarNovoTipoUsuario(@RequestBody TipoUsuario tipoUsuario) {
-        return tipoUsuarioRepository.save(tipoUsuario);
+    public ResponseEntity<Object> criarNovoTipoUsuario(@RequestBody TipoUsuario tipoUsuario) {
+        try {
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(tipoUsuarioRepository.save(tipoUsuario));
+        } catch (DataIntegrityViolationException d) {
+            return ResponseEntity.status(HttpStatus.CONFLICT)
+                    .body("Tipo de usuário já existente." + d.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST)
+                    .body("Erro ao criar tipo de usuário." + e.getMessage());
+        }
     }
 
     @GetMapping(value = "/tipousuarios")
