@@ -13,15 +13,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.agenda.app.model.TipoUsuario;
 import com.agenda.app.repository.TipoUsuarioRepository;
 
 @RestController
+@RequestMapping(value = "/tipo-usuarios")
 public class TipoUsuarioController {
 
-    @PostMapping(value = "/tipousuarios")
+    @PostMapping
     public ResponseEntity<Object> criarNovoTipoUsuario(@RequestBody TipoUsuario tipoUsuario) {
         try {
             return ResponseEntity.status(HttpStatus.CREATED)
@@ -35,29 +37,29 @@ public class TipoUsuarioController {
         }
     }
 
-    @GetMapping(value = "/tipousuarios")
+    @GetMapping
     public List<TipoUsuario> obterTipoDeUsuarios() {
         return tipoUsuarioRepository.findAll();
     }
 
-    @GetMapping(value = "/tipousuarios/{id}")
+    @GetMapping(value = "/{id}")
     public Optional<TipoUsuario> obterTipoUsuarioPeloId(@PathVariable("id") int id) {
         return tipoUsuarioRepository.findById(id);
     }
 
-    @GetMapping(value = "/tipousuarios/nome/{nome}")
+    @GetMapping(value = "/nome/{nome}")
     public TipoUsuario obterTipoUsuarioPeloNome(@PathVariable("nome") String nome) {
         return tipoUsuarioRepository.findByNomeLike(nome + "%");
     }
 
-    @DeleteMapping(value = "/tipousuarios/{id}")
+    @DeleteMapping(value = "/{id}")
     public String deletarTipoUsuarioPeloId(@PathVariable("id") int id) {
         tipoUsuarioRepository.deleteById(id);
 
         return "Tipo de Usuário deletado com sucesso!";
     }
 
-    @PutMapping(value = "/tipousuarios")
+    @PutMapping
     public TipoUsuario atualizarTipoUsuario(@RequestBody TipoUsuario tipoUsuario) {
         TipoUsuario tipoUsuarioBD = tipoUsuarioRepository.findById(tipoUsuario.getIdTipoUsuario()).get();
 
