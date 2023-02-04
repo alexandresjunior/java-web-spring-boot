@@ -38,18 +38,13 @@ public class TipoUsuarioController {
     }
 
     @GetMapping
-    public List<TipoUsuario> obterTipoDeUsuarios() {
+    public List<TipoUsuario> obterTodosTipoUsuarios() {
         return tipoUsuarioRepository.findAll();
     }
 
     @GetMapping(value = "/{id}")
     public Optional<TipoUsuario> obterTipoUsuarioPeloId(@PathVariable("id") int id) {
         return tipoUsuarioRepository.findById(id);
-    }
-
-    @GetMapping(value = "/nome/{nome}")
-    public TipoUsuario obterTipoUsuarioPeloNome(@PathVariable("nome") String nome) {
-        return tipoUsuarioRepository.findByNomeLike(nome + "%");
     }
 
     @DeleteMapping(value = "/{id}")
@@ -66,6 +61,11 @@ public class TipoUsuarioController {
         tipoUsuarioBD.setNome(tipoUsuario.getNome());
 
         return tipoUsuarioRepository.save(tipoUsuarioBD);
+    }
+
+    @GetMapping(value = "/nome/{nome}")
+    public TipoUsuario obterTipoUsuarioPeloNome(@PathVariable("nome") String nome) {
+        return tipoUsuarioRepository.findByNomeLike(nome + "%");
     }
 
     @Autowired

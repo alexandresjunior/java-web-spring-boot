@@ -50,8 +50,8 @@ public class UsuarioController {
     }
 
     @GetMapping(value = "/tipo/{id}")
-    public ResponseEntity<List<Usuario>> obterUsuariosPeloTipoId(@PathVariable("id") int id) {
-        return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.findByIdTipoUsuario(id));
+    public ResponseEntity<List<Usuario>> obterUsuariosPeloTipo(@PathVariable("id") int id) {
+        return ResponseEntity.status(HttpStatus.OK).body(usuarioRepository.findByTipoUsuario(id));
     }
 
     @Autowired

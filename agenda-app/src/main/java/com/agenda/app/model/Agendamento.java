@@ -27,11 +27,11 @@ public class Agendamento {
     private LocalTime hora;
 
     @OneToOne
-    @JoinColumn(name = "idUsuario")
-    private Usuario usuario;
-
-    @OneToOne
     @JoinColumn(name = "idServico")
     private Servico servico;
-    
+
+    @OneToOne
+    @JoinColumn(name = "idCliente")
+    private Usuario cliente;
+
 }

@@ -49,9 +49,9 @@ public class ServicoController {
         return ResponseEntity.status(HttpStatus.OK).body("Serviço deletado com sucesso");
     }
 
-    @GetMapping(value = "/usuario/{id}")
-    public ResponseEntity<List<Servico>> obterServicoPeloUsuarioId(@PathVariable("id") int id) {
-        return ResponseEntity.status(HttpStatus.OK).body(servicoRepository.findByIdUsuario(id));
+    @GetMapping(value = "/prestador/{id}")
+    public ResponseEntity<List<Servico>> obterServicosDoPrestador(@PathVariable("id") int id) {
+        return ResponseEntity.status(HttpStatus.OK).body(servicoRepository.findByPrestador(id));
     }
 
     // TODO: Spring Validation / Security para cadastro de serviço APENAS para

@@ -10,7 +10,7 @@ import com.agenda.app.model.Servico;
 
 public interface ServicoRepository extends JpaRepository<Servico, Integer> {
 
-    @Query("SELECT s FROM tb_servico s WHERE s.usuario.idUsuario = :idUsuario")
-    List<Servico> findByIdUsuario(@Param("idUsuario") int idUsuario);
+    @Query("SELECT s FROM tb_servico s WHERE s.prestador.idUsuario = :idPrestador")
+    List<Servico> findByPrestador(@Param("idPrestador") int id);
 
 }
