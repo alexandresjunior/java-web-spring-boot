@@ -10,7 +10,7 @@ const Footer = () => {
                 className="img-footer"
             />
             <div className="texto-footer">
-                <span>Projeto Consenso 2023</span><br />
+                <span>Curso Java Web com Spring Boot</span><br />
                 <span>Agendapp &copy; Treina Recife</span>
             </div>
         </footer>

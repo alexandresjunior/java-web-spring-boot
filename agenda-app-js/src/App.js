@@ -1,9 +1,12 @@
 import React from "react";
+import { GlobalProvider } from "./contexts/GlobalContext";
 import AgendappRoutes from "./routes";
 
 const App = () => {
   return (
-    <AgendappRoutes />
+    <GlobalProvider>
+      <AgendappRoutes />
+    </GlobalProvider>
   );
 }
 

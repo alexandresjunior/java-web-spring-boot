@@ -1,5 +1,5 @@
 .header-geral {
-    background-color: #0057DF;
+    background-color: #FF9C09;
 }
 
 .logo a {
@@ -22,8 +22,8 @@
 }
 
 #meus-servicos {
-    color: #FFB800 !important;
-    border-bottom: 7px solid #FFB800;
+    color: #FF9C09 !important;
+    border-bottom: 7px solid #FF9C09;
     color: white;
     font-weight: 700;
     line-height: 2;
@@ -41,9 +41,9 @@
 }
 
 .aba-ativa {
-    color: #FFB800 !important;
+    color: #5A5A5A !important;
     height: 60px;
-    border-bottom: 7px solid #FFB800;
+    border-bottom: 7px solid #5A5A5A;
     font-weight: 700;
     line-height: 2;
 }

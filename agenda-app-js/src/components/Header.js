@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useLocation } from "react-router-dom";
 import "../assets/css/header.css";
+import { GlobalContext } from "../contexts/GlobalContext";
 
 const Header = () => {
     const location = useLocation();
+
+    const { usuarioLogado, usuarioLogadoEhCliente, usuarioLogadoEhPrestador } = useContext(GlobalContext);
 
     const ehAbaAtiva = (url) => {
         return location.pathname === url ? "aba-ativa" : "aba";
@@ -21,8 +24,34 @@ const Header = () => {
                     </button>
                     <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
                         <div className="navbar-nav ms-auto">
-                            <Link to="/" className={`nav-link ${ehAbaAtiva("/")}`}>Login</Link>
-                            <Link to="/cadastro" className={`nav-link ${ehAbaAtiva("/cadastro")}`}>Cadastro</Link>
+                            {
+                                usuarioLogadoEhCliente && (
+                                    <>
+                                        <Link to="/agendar-servico" className={`nav-link ${ehAbaAtiva("/agendar-servico")}`}>Agendar Serviço</Link>
+                                        <Link to="/meus-agendamentos" className={`nav-link ${ehAbaAtiva("/meus-agendamentos")}`}>Meus Agendamentos</Link>
+                                    </>
+                                )
+                            }
+
+                            {
+                                usuarioLogadoEhPrestador && (
+                                    <>
+                                        <Link to="/meus-servicos" className={`nav-link ${ehAbaAtiva("/meus-servicos")}`}>Meus Serviços</Link>
+                                        <Link to="/minha-agenda" className={`nav-link ${ehAbaAtiva("/minha-agenda")}`}>Minha Agenda</Link>
+                                    </>
+                                )
+                            }
+
+                            {
+                                !usuarioLogado ? (
+                                    <>
+                                        <Link to="/" className={`nav-link ${ehAbaAtiva("/")}`}>Login</Link>
+                                        <Link to="/cadastro" className={`nav-link ${ehAbaAtiva("/cadastro")}`}>Cadastro</Link>
+                                    </>
+                                ) : (
+                                    <Link to="/" onClick={() => { }} className={`nav-link ${ehAbaAtiva("/")}`}>Logout</Link>
+                                )
+                            }
                         </div>
                     </div>
                 </div>

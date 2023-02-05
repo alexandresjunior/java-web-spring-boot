@@ -9,10 +9,13 @@ import MinhaAgenda from "../pages/Servico/MinhaAgenda";
 import MeusAgendamentos from "../pages/Agendamento";
 import AgendarServico from "../pages/Agendamento/AgendarServico";
 import EditarAgendamento from "../pages/Agendamento/EditarAgendamento";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const AgendappRoutes = () => {
     return (
         <BrowserRouter>
+            <Header />
             <Routes>
                 <Route path="/" element={<Login />} />
                 <Route path="/cadastro" element={<Cadastro />} />
@@ -20,14 +23,15 @@ const AgendappRoutes = () => {
                     <Route index element={<MeusServicos />} />
                     <Route path="editar-servico" element={<EditarServico />} />
                     <Route path="cadastrar-servico" element={<CadastrarServico />} />
-                    <Route path="minha-agenda" element={<MinhaAgenda />} />
                 </Route>
+                <Route path="/minha-agenda" element={<MinhaAgenda />} />
+                <Route path="/agendar-servico" element={<AgendarServico />} />
                 <Route path="/meus-agendamentos">
                     <Route index element={<MeusAgendamentos />} />
-                    <Route path="agendar-servico" element={<AgendarServico />} />
                     <Route path="editar-agendamento" element={<EditarAgendamento />} />
                 </Route>
             </Routes>
+            <Footer />
         </BrowserRouter>
     )
 }
