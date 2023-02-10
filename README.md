@@ -60,4 +60,5 @@ Este curso é um guia de aprendizado completo para você iniciar uma carreira na
 * [Spring Boot - Documentação Oficial](https://spring.io/)
 * Apresentação sobre Padrão MVC e REST APIs (adicionar)
 * [W3 Schools - Tutoriais](https://www.w3schools.com/)
+* [Maven Repository[(https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies/2022.0.1)
 * [Projeto Final](https://www.figma.com/file/3OqkgpHkOhcx9hbeK6Uej7/Java-Web-com-Spring-Boot?node-id=0%3A1&t=aJMNPo9r1JNpUeV8-1)
