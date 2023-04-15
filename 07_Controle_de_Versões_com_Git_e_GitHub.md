@@ -161,3 +161,25 @@ Existem alguns recursos úteis específicos do GitHub que podem ajudar quando vo
   3. Envie essas alterações para o GitHub.
   4. Navegue até a página "Configurações" do seu repositório, role para baixo até GitHub Pages e escolha a *branch main* no menu suspenso.
   5. Role de volta para a parte GitHub Pages da página de configurações e, após alguns minutos, você verá uma notificação de que “Seu site está publicado em: …” incluindo um URL onde você pode encontrar seu site!
+ 
+## Comandos Git mais utilizados
+
+* git clone <url-do-repositorio>
+* git add .
+* git status
+* git add <nome-do-arquivo>
+* git commit -m "Mensagem"
+* git log
+* git log -n 3
+* git log --oneline
+* git push origin main
+* git push origin +main (git push origin main --force)
+* git fetch origin main
+* git pull origin main
+* git pull --rebase origin main
+* git cherry-pick <id-do-commit>
+* git branch -a
+* git checkout -b <nome-da-nova-branch>
+* git checkout <nome-da-branch>
+* git merge <nome-da-branch-a-ser-mergeada>
+* git diff <nome-do-arquivo>
