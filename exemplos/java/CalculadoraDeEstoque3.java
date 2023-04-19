@@ -1,4 +1,4 @@
-public class CalculadoraDeEstoque {
+public class CalculadoraDeEstoque3 {
 
     public static void main(String[] args) {
         // Declaração e inicialização das variáveis
@@ -6,7 +6,7 @@ public class CalculadoraDeEstoque {
         double livroPython = 59.90;
 
         // Operadores matemáticos em Java
-        double soma = livroJava + livroPython;
+        // double soma = livroJava + livroPython;
         double diferenca = livroJava - livroPython;
         double multiplicacao = livroJava * livroPython;
         double divisao = livroJava / livroPython;
