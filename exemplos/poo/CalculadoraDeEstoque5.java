@@ -11,7 +11,7 @@ public class CalculadoraDeEstoque5 {
         livro.valor = 59.90;
         livro.isbn = "978-85-6620-46-4";
 
-        System.out.println(livro.autor);
+        System.out.println(livro.autor); // null
 
         Autor autorDoLivro = new Autor();
 
@@ -19,15 +19,13 @@ public class CalculadoraDeEstoque5 {
         autorDoLivro.email = "alexandre@gmail.com";
         autorDoLivro.cpf = "123456789-00";
 
-        livro.mostrarDetalhes();
+        // livro.mostrarDetalhes();
 
-        livro.autor = autorDoLivro;
+        livro.autor = autorDoLivro; // referência ao objeto autorDoLivro
 
-
-
+        // valores iguais
+        System.out.println(autorDoLivro);
         System.out.println(livro.autor);
-
-        
 
         System.out.println("Preço sem desconto: " + livro.valor);
 
@@ -35,12 +33,12 @@ public class CalculadoraDeEstoque5 {
 
         System.out.println("Preço com desconto: " + novoValorDoLivro);
 
-        Livro outroLivro = new Livro();
+        // Livro outroLivro = new Livro();
 
-        outroLivro.nome = "Lógica de Programação com Python";
-        outroLivro.descricao = "Crie seus primeiros programas";
-        outroLivro.valor = 59.90;
-        outroLivro.isbn = "978-85-6620-22-0";
+        // outroLivro.nome = "Lógica de Programação com Python";
+        // outroLivro.descricao = "Crie seus primeiros programas";
+        // outroLivro.valor = 59.90;
+        // outroLivro.isbn = "978-85-6620-22-0";
 
         // outroLivro.mostrarDetalhes();
 
