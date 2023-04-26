@@ -13,7 +13,6 @@ public class Livro {
     // Overload (Sobrecarga)
 
     Livro() {
-
     }
 
     Livro(Autor autor) {
