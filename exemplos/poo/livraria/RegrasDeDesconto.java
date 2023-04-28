@@ -7,12 +7,12 @@ public class RegrasDeDesconto {
         autor.setEmail("alex@dev.com");
         autor.setCpf("123456789-00");
 
-        Livro livro = new Livro("Livro de Java Web", 
-            "Aprenda sobre linguagem Java", 
-                59.90, 
-                "123456-7890");
+        // Livro livro = new Livro("Livro de Java Web", 
+        //     "Aprenda sobre linguagem Java", 
+        //         59.90, 
+        //         "123456-7890");
 
-        livro.mostrarDetalhes("Detalhes do livro:");
+        // livro.mostrarDetalhes("Detalhes do livro:");
 
         // System.out.println("Valor atual do livro: " + livro.getValor());
 

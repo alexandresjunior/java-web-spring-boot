@@ -1,4 +1,4 @@
-public class Livro {
+public abstract class Livro implements Produto {
 
     // default, public, private, protected
     
@@ -58,7 +58,7 @@ public class Livro {
     }
 
     public String getNome() {
-        return nome;
+        return this.nome;
     }
 
     public void setNome(String nome) {
@@ -99,16 +99,6 @@ public class Livro {
 
     boolean temAutor() {
         return this.autor != null;
-    }
-
-    boolean aplicarDescontoDe(double valor) {
-        if (valor > 0.3) {
-            return false;
-        }
-
-        this.valor -= this.valor * valor;
-
-        return true;
     }
 
 }

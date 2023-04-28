@@ -1,4 +1,4 @@
-public class Ebook extends Livro {
+public class Ebook extends Livro implements Promocional {
 
     private String marcaDagua;
 
@@ -11,6 +11,11 @@ public class Ebook extends Livro {
     public Ebook(Autor autor) {
         // this.setAutor(autor);
         super(autor);
+    }
+
+    @Override
+    public String getNome() {
+        return this.getNome();
     }
 
     public String getMarcaDagua() {
@@ -34,6 +39,11 @@ public class Ebook extends Livro {
         return true;
 
         // return super.aplicarDescontoDe(porcentagem);
+    }
+
+    @Override
+    public String gerarCodigoBarras() {
+        return this.getNome() + "-" + this.getValor() + "EBOOK";
     }
 
 }
