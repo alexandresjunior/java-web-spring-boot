@@ -1,3 +1,5 @@
+package entidades;
+
 public class CarrinhoDeCompras {
 
     private double total;

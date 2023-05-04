@@ -1,6 +1,12 @@
+package entidades;
+
+import abstratas.Livro;
+import interfaces.Promocional;
+
 public class LivroFisico extends Livro implements Promocional {
 
     public double obterTaxaImpressao() {
+        mostrarDetalhes();
         return this.getValor() * 0.05;
     }
 

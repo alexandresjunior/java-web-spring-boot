@@ -1,3 +1,8 @@
+package abstratas;
+
+import entidades.Autor;
+import interfaces.Produto;
+
 public abstract class Livro implements Produto {
 
     // default, public, private, protected
@@ -12,10 +17,10 @@ public abstract class Livro implements Produto {
 
     // Overload (Sobrecarga)
 
-    Livro() {
+    public Livro() {
     }
 
-    Livro(Autor autor) {
+    public Livro(Autor autor) {
         this.autor = autor;
     }
 
@@ -28,7 +33,7 @@ public abstract class Livro implements Produto {
         this.isbn = isbn;
     }
 
-    void mostrarDetalhes(String mensagem) {
+    protected void mostrarDetalhes(String mensagem) {
         System.out.println(mensagem);
         System.out.println(nome);
         System.out.println(descricao);
@@ -42,7 +47,7 @@ public abstract class Livro implements Produto {
         System.out.println("---");
     }
 
-    void mostrarDetalhes() {
+    protected void mostrarDetalhes() {
         String mensagem = "Mostrando detalhes do livro:";
         System.out.println(mensagem);
         System.out.println(nome);

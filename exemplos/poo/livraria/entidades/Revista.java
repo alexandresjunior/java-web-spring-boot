@@ -1,3 +1,8 @@
+package entidades;
+
+import interfaces.Produto;
+import interfaces.Promocional;
+
 public class Revista implements Produto, Promocional {
 
     private String nome;

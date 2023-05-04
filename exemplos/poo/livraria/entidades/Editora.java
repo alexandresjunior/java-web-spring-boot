@@ -1,3 +1,5 @@
+package entidades;
+
 public class Editora {
     
     private String nomeFantasia;

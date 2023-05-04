@@ -1,3 +1,5 @@
+package entidades;
+
 public class Autor {
 
     private String nome;
@@ -28,7 +30,7 @@ public class Autor {
         this.cpf = cpf;
     }
 
-    void mostrarDetalhes() {
+    public void mostrarDetalhes() {
         System.out.println("Mostrando detalhes do autor: ");
         System.out.println(nome);
         System.out.println(email);
