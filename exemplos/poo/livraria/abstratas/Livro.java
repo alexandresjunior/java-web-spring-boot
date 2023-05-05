@@ -1,6 +1,7 @@
 package abstratas;
 
 import entidades.Autor;
+import exception.AutorNuloException;
 import interfaces.Produto;
 
 public abstract class Livro implements Produto {
@@ -20,8 +21,13 @@ public abstract class Livro implements Produto {
     public Livro() {
     }
 
-    public Livro(Autor autor) {
-        this.autor = autor;
+    public Livro(Autor autor) throws AutorNuloException {
+        if (autor != null) {
+            this.autor = autor;
+        } else {
+            throw new AutorNuloException("Autor nulo!");
+        }
+        
     }
 
     // Métodos

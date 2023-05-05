@@ -1,6 +1,7 @@
 package entidades;
 
 import abstratas.Livro;
+import exception.AutorNuloException;
 import interfaces.Promocional;
 
 public class Ebook extends Livro implements Promocional {
@@ -13,7 +14,7 @@ public class Ebook extends Livro implements Promocional {
         super(); // opcional
     }
 
-    public Ebook(Autor autor) {
+    public Ebook(Autor autor) throws AutorNuloException {
         // this.setAutor(autor);
         super(autor);
     }
