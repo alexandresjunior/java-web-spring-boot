@@ -1,9 +1,12 @@
 package com.taskify.api.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -26,8 +29,9 @@ public class UsuarioController {
     }
 
     @GetMapping
-    public List<Usuario> listarUsuarios() {
-        return usuarioRepository.findAll();
+    public Page<Usuario> listarUsuarios(
+            @PageableDefault(size = 10, page = 0, sort = "nome", direction = Direction.DESC) Pageable paginacao) {
+        return usuarioRepository.findAll(paginacao);
     }
 
     @GetMapping("/{id}")
@@ -46,6 +50,7 @@ public class UsuarioController {
             usuarioExistente.get().setSobrenome(usuario.getSobrenome());
             usuarioExistente.get().setEmail(usuario.getEmail());
             usuarioExistente.get().setSenha(usuario.getSenha());
+            usuarioExistente.get().setGenero(usuario.getGenero());
 
             return usuarioRepository.save(usuarioExistente.get());
         }
@@ -67,8 +72,8 @@ public class UsuarioController {
 
     @GetMapping("/{id}/email/{email}")
     public Optional<Usuario> buscarUsuarioPeloIdEmail(
-        @PathVariable("id") Long id,
-        @PathVariable("email") String email) {
+            @PathVariable("id") Long id,
+            @PathVariable("email") String email) {
         return usuarioRepository.findByIdUsuarioAndEmail(id, email);
     }
 
