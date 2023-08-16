@@ -1,0 +1,1 @@
+ALTER TABLE tb_usuarios ADD genero VARCHAR(20);
