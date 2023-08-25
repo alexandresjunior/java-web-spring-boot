@@ -1,9 +1,10 @@
 package com.taskify.api.controller;
 
-import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -27,8 +28,8 @@ public class ProjetoController {
     }
 
     @GetMapping
-    public List<Projeto> listarProjetos() {
-        return projetoRepository.findAll();
+    public Page<Projeto> listarProjetos(Pageable pageable) {
+        return projetoRepository.findAll(pageable);
     }
 
     @GetMapping("/{id}")
@@ -63,8 +64,8 @@ public class ProjetoController {
         }
 
     @GetMapping("/usuario/{id}")
-    public Optional<List<Projeto>> obterProjetosDeUmUsuario(@PathVariable("id") Long idUsuario) {
-        return projetoRepository.findByUsuario(idUsuario);
+    public Optional<Page<Projeto>> obterProjetosDeUmUsuario(@PathVariable("id") Long idUsuario, Pageable pageable) {
+        return projetoRepository.findByUsuario(idUsuario, pageable);
     }
 
     @Autowired
