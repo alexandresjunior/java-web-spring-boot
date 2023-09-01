@@ -18,7 +18,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
+import com.taskify.api.dto.EnderecoDTO;
+import com.taskify.api.model.Endereco;
 import com.taskify.api.model.Usuario;
 import com.taskify.api.repository.UsuarioRepository;
 
@@ -88,6 +91,44 @@ public class UsuarioController {
     @GetMapping("/nome/{nome}")
     public Optional<List<Usuario>> obterUsuarioPeloNome(@PathVariable("nome") String nome) {
         return usuarioRepository.findByNome(nome);
+    }
+
+    @GetMapping("/endereco/{cep}")
+    public Endereco obterEnderecoPeloCep(@PathVariable("cep") String cep) {
+        String url = String.format("https://viacep.com.br/ws/%s/json/", cep);
+
+        RestTemplate restTemplate = new RestTemplate();
+
+        return restTemplate.getForObject(url, Endereco.class);
+    }
+
+    @PostMapping("/endereco")
+    public ResponseEntity<Usuario> salvarEnderecoDoUsuario(@RequestBody EnderecoDTO dto) {
+        // 1. Verificar se o usuário existe
+
+        Optional<Usuario> usuarioExistente = usuarioRepository.findById(dto.getIdUsuario());
+
+        if (usuarioExistente.isPresent()) {
+            // 2. Se o usuário existe, chamar a API do Via CEP e obter os demais campos
+
+            Endereco endereco = obterEnderecoPeloCep(dto.getCep());
+
+            endereco.setNumero(dto.getNumero());
+            endereco.setComplemento(dto.getComplemento());
+
+            // 3. Usar o método set para atualizar o usuário
+
+            Usuario usuario = usuarioExistente.get();
+
+            usuario.setEndereco(endereco);
+
+            // 4. Persistir os dados no banco
+
+            return ResponseEntity.ok().body(usuarioRepository.save(usuario));
+        }
+
+        // 5. Se usuário não existe, retornar 404
+        return ResponseEntity.notFound().build();
     }
 
     @Autowired
