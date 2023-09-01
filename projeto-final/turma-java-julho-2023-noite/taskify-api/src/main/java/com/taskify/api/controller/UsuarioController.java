@@ -25,6 +25,8 @@ import com.taskify.api.model.Endereco;
 import com.taskify.api.model.Usuario;
 import com.taskify.api.repository.UsuarioRepository;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping(value = "/usuarios")
 public class UsuarioController {
@@ -103,7 +105,7 @@ public class UsuarioController {
     }
 
     @PostMapping("/endereco")
-    public ResponseEntity<Usuario> salvarEnderecoDoUsuario(@RequestBody EnderecoDTO dto) {
+    public ResponseEntity<Usuario> salvarEnderecoDoUsuario(@RequestBody @Valid EnderecoDTO dto) {
         // 1. Verificar se o usuário existe
 
         Optional<Usuario> usuarioExistente = usuarioRepository.findById(dto.getIdUsuario());
