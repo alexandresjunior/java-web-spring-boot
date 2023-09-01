@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 
+import com.taskify.api.constants.Status;
 import com.taskify.api.model.Tarefa;
 
 public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
@@ -15,5 +16,10 @@ public interface TarefaRepository extends JpaRepository<Tarefa, Long> {
 
     @Query("SELECT t FROM tb_tarefas t WHERE t.usuario.idUsuario = :idUsuario")
     Optional<List<Tarefa>> findByUsuario(Long idUsuario);
+
+    @Query("SELECT t FROM tb_tarefas t WHERE t.projeto.idProjeto = :idProjeto AND t.usuario.idUsuario = :idUsuario")
+    Optional<List<Tarefa>> findByProjetoAndUsuario(Long idProjeto, Long idUsuario);
+
+    Optional<List<Tarefa>> findByStatus(Status status);
 
 }

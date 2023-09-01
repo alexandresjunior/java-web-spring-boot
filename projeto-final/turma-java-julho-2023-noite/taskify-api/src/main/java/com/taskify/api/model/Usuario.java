@@ -3,6 +3,7 @@ package com.taskify.api.model;
 import com.taskify.api.constants.Genero;
 
 import jakarta.persistence.Column;
+import jakarta.persistence.Embedded;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -37,5 +38,8 @@ public class Usuario {
 
     @Enumerated(EnumType.STRING)
     private Genero genero;
+
+    @Embedded
+    private Endereco endereco;
 
 }

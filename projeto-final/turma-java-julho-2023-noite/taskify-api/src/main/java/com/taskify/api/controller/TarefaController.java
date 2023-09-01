@@ -1,5 +1,6 @@
 package com.taskify.api.controller;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.taskify.api.constants.Status;
 import com.taskify.api.model.Tarefa;
 import com.taskify.api.repository.TarefaRepository;
 
@@ -31,6 +33,21 @@ public class TarefaController {
     @GetMapping
     public Page<Tarefa> obterTarefas(Pageable pageable) {
         return tarefaRepository.findAll(pageable);
+    }
+
+    @GetMapping("/status/{status}")
+    public List<Tarefa> obterTarefasPeloStatus(@PathVariable("status") Status status) {
+        Optional<List<Tarefa>> tarefas = tarefaRepository.findByStatus(status);
+
+        if (tarefas.isPresent()) {
+            List<Tarefa> lista = tarefas.get();
+
+            lista.sort(Comparator.comparingInt(t -> t.getPrioridade().getValor()));
+
+            return lista;
+        }
+
+        return null;
     }
 
     @GetMapping("/{id}")
